@@ -77,8 +77,8 @@ export const TodoCard: FC<Props> = ({
         </div>
         <button
           onClick={handleToggle}
-          className={`bg-${
-            !isComplete ? "primary" : "success"
+          className={`${
+            !isComplete ? "bg-primary" : "bg-success"
           } font-bold text-white py-2 rounded hover:-translate-y-1 text-sm transition ease-out`}
         >
           {!isComplete ? "Pendiente" : "Completado"}
