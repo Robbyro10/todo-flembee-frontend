@@ -22,11 +22,14 @@ export default function Home() {
     }
   }, [user]);
 
+  if (!user) return <></>
+  
   const { data, error, isLoading } = useSWR(`/todo`, fetcher, {
     refreshInterval: 1000,
   });
   const [isOpen, setIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
+
 
   if (error) return <h1 className="top-1/2 right-1/2 absolute">Error</h1>;
 
