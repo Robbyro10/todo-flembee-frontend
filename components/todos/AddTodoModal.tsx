@@ -1,7 +1,6 @@
 import { todoApi } from "@/api/todoApi";
 import { AuthContext } from "@/context";
-import { ITodo } from "@/interfaces";
-import { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
 import { useForm } from 'react-hook-form';
 import { IoCloseSharp } from "react-icons/io5";
 
@@ -22,7 +21,7 @@ export const AddTodoModal: FC<Props> = ({ onClose, isOpen }) => {
       const onSubmit = async (data: any) => {
         todoApi.post('/todo', data, { headers: {"Authorization" : `Bearer ${user!.token}` }});
         onClose();
-        reset()
+        reset();
       }
 
       if (!isOpen) return null;
